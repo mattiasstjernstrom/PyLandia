@@ -1,4 +1,4 @@
-from pylandia import app
+from Pylandia import app
 
 if __name__ == '__main__':
     app.run()
