@@ -1,3 +1,3 @@
-<img src="pylandia/resources/pylandia_logotype.png" alt="PyLandia" />
+<img src="/Resources/pylandia_logotype.png" alt="PyLandia" />
 
 # PyLandia
