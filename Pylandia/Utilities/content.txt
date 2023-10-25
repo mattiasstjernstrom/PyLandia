@@ -1,0 +1,2 @@
+Use this to store general purpose functions and methods that might be
+utilized throughout the program.
