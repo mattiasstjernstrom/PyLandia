@@ -1,4 +1,5 @@
-from Entity import Entity
+from Characters import Character
+from Enemies import Enemy
 
 class Combat:
     def __init__(self, player, enemy):
@@ -27,19 +28,33 @@ class Combat:
         The players turn to deal damage.
         """
         print(f"{self.player.name}'s turn")
-        damage = self.player.attack(self.enemy)
-        print(f"{self.player.name} attacked {self.enemy.name} for {damage:.2f} damage! {self.enemy.name} has {self.enemy.hp:.2f} HP left")
-        
+        choice = self.player.choose_action()
+        if choice == 1:
+            damage = self.player.attack(self.enemy)
+            print(f"{self.player.name} attacked {self.enemy.name} for {damage} damage! {self.enemy.name} has {self.enemy.hp:.2f} HP left")
+        elif choice == 2:
+            self.player.defend()
+        elif choice == 3:
+            ability_choice = self.player.choose_ability()
+            damage = self.player.player_use_ability(ability_choice, self.enemy)
+
     def enemy_turn(self):
         """
         The enemy turn to deal damage.
         """
         print(f"{self.enemy.name}'s turn!")
         damage = self.enemy.attack(self.player)
-        print(f"{self.enemy.name} attacked {self.player.name} for {damage:.2f} damage! {self.player.name} has {self.player.hp:.2f} HP left.")
+        print(f"{self.enemy.name} attacked {self.player.name} for {damage} damage! {self.player.name} has {self.player.hp} HP left.")
 
+if __name__ == "__main__":
+    
+    player = Character("Daniel", 100, 10, 5)
+    enemy = Enemy("Mattias", 80, 7, 3)
 
-player = Entity("Daniel", 100, 10, 5)
-enemy = Entity("Mattias", 80, 7, 3)
-combat = Combat(player, enemy)
-combat.fight()
+    player.load_abilities()
+    enemy.load_abilities()
+    enemy.load_behaviors
+
+    # Start combat
+    combat = Combat(player, enemy)
+    combat.fight()

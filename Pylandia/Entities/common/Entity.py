@@ -1,6 +1,5 @@
 import random
 
-
 class Entity:
     def __init__(self, name, hp=100, attack_value=5, defence_value=1):
         self._name = name
@@ -28,7 +27,7 @@ class Entity:
         return self._attack_value
     @attack_value.setter
     def attack_value(self, new_attack_value):
-        self.attack_value = new_attack_value
+        self._attack_value = new_attack_value
 
     @property
     def defence_value(self):
@@ -37,11 +36,15 @@ class Entity:
     def defence_value(self, new_defence_value):
         self._defence_value = new_defence_value
     
+    def defend(self):
+        self.defence_value *= 2
+        print(f"{self.name} is defending and has doubled their defence value!")
+    
     def attack(self, target): #snor denna från förra arbetet
         base_damage = self.attack_value - target.defence_value
-        damage = random.uniform(
+        damage = round(random.uniform(
             max(0.1 * self.attack_value, base_damage) * 0.8,
-            max(0.1 * self.attack_value, base_damage) * 1.2)
+            max(0.1 * self.attack_value, base_damage) * 1.2))
         target.receive_damage(damage)
         return damage
     
@@ -51,3 +54,11 @@ class Entity:
             self._hp = 0
             self.is_alive = False
 
+    def use_ability(self, abilities, ability_index, target):
+        ability = list(abilities.values())[ability_index - 1]
+        min_damage = ability.get('min_damage', 0)
+        max_damage = ability.get('max_damage', 0)
+        damage = round(random.uniform(min_damage, max_damage))
+        target.receive_damage(damage)
+        print(f"{self.name} used {ability['name']} on {target.name} for {damage} damage!")
+        return damage
