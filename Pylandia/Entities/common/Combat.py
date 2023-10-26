@@ -43,8 +43,8 @@ class Combat:
         The enemy turn to deal damage.
         """
         print(f"{self.enemy.name}'s turn!")
-        damage = self.enemy.attack(self.player)
-        print(f"{self.enemy.name} attacked {self.player.name} for {damage} damage! {self.player.name} has {self.player.hp} HP left.")
+        self.enemy.choose_action(self.player)
+        print(f"{self.player.name} has {self.player.hp} HP left.")
 
 if __name__ == "__main__":
     
@@ -53,7 +53,7 @@ if __name__ == "__main__":
 
     player.load_abilities()
     enemy.load_abilities()
-    enemy.load_behaviors
+    enemy.load_behaviors()
 
     # Start combat
     combat = Combat(player, enemy)

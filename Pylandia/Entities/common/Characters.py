@@ -8,11 +8,9 @@ class Character(Entity):
         self.abilities = {}
     
     def load_abilities(self):
-        current_dir = os.path.dirname(__file__)  # Get the directory where this script is located
-        file_path = os.path.join(current_dir, 'Abilities.json')  # Create a path to the JSON file
+        file_path = os.path.join(os.path.dirname(__file__), 'Abilities.json')
         with open(file_path, 'r') as f:
-            abilities = json.load(f)
-        self.abilities.update(abilities)
+            self.abilities.update(json.load(f))
 
     def choose_action(self):
         print("Choose an action:\n1. Attack\n2. Defend\n3. Use Ability")
@@ -27,5 +25,5 @@ class Character(Entity):
         choice = input("Enter the number of the ability: ")
         return int(choice)
     
-    def player_use_ability(self, ability_index, target):
-        super().use_ability(self.abilities, ability_index, target)
+    def player_use_ability(self, ability, target):
+        super().use_ability(self.abilities, ability, target)

@@ -54,8 +54,11 @@ class Entity:
             self._hp = 0
             self.is_alive = False
 
-    def use_ability(self, abilities, ability_index, target):
-        ability = list(abilities.values())[ability_index - 1]
+    def use_ability(self, abilities, ability, target):
+        ability = abilities.get(ability)
+        if ability is None:
+            print(f"Ability {ability} not found.")
+            return
         min_damage = ability.get('min_damage', 0)
         max_damage = ability.get('max_damage', 0)
         damage = round(random.uniform(min_damage, max_damage))
