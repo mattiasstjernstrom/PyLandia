@@ -1,4 +1,4 @@
-from Entity import Entity
+from .Entity import Entity
 import json
 import random
 import os
@@ -21,10 +21,8 @@ class Enemy(Entity):
             self.behaviors.update(json.load(f))
 
     def choose_action(self, target):
-        print("choose_action method called")  # Debugging line
         behavior_values = list(self.behaviors.values())
         behavior = random.choices(behavior_values, weights=[b['chance'] for b in behavior_values],k=1)[0]
-        print(f"Selected behavior: {behavior}")  # Debugging line
         if behavior['action'] == 'attack':
             self.attack(target)
         elif behavior['action'] == 'defend':

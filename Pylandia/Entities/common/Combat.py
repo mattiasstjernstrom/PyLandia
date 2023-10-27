@@ -1,5 +1,5 @@
-from Characters import Character
-from Enemies import Enemy
+from .Characters import Character
+from .Enemies import Enemy
 
 class Combat:
     def __init__(self, player, enemy):
@@ -46,8 +46,7 @@ class Combat:
         self.enemy.choose_action(self.player)
         print(f"{self.player.name} has {self.player.hp} HP left.")
 
-if __name__ == "__main__":
-    
+def run_game():
     player = Character("Daniel", 100, 10, 5)
     enemy = Enemy("Mattias", 80, 7, 3)
 
@@ -58,3 +57,7 @@ if __name__ == "__main__":
     # Start combat
     combat = Combat(player, enemy)
     combat.fight()
+
+
+if __name__ == "__main__":
+    run_game()

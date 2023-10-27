@@ -1,4 +1,4 @@
-from Entity import Entity
+from .Entity import Entity
 import json
 import os
 
@@ -11,6 +11,8 @@ class Character(Entity):
         file_path = os.path.join(os.path.dirname(__file__), 'Abilities.json')
         with open(file_path, 'r') as f:
             self.abilities.update(json.load(f))
+            
+        
 
     def choose_action(self):
         print("Choose an action:\n1. Attack\n2. Defend\n3. Use Ability")
@@ -25,5 +27,7 @@ class Character(Entity):
         choice = input("Enter the number of the ability: ")
         return int(choice)
     
-    def player_use_ability(self, ability, target):
-        super().use_ability(self.abilities, ability, target)
+    def player_use_ability(self, ability_index, target):
+        ability_names = list(self.abilities.keys())
+        ability_name = ability_names[ability_index - 1]  # Convert index to name
+        super().use_ability(self.abilities, ability_name, target)
