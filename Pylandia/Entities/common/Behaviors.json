@@ -1,0 +1,17 @@
+{
+  "Aggressive": {
+    "action": "attack",
+    "chance": 70,
+    "description": "The enemy is more likely to attack."
+  },
+  "Defensive": {
+    "action": "defend",
+    "chance": 30,
+    "description": "The enemy is more likely to defend."
+  },
+  "Ability": {
+    "action": "ability",
+    "chance": 80,
+    "description": "The enemy is using an ability"
+  }
+}

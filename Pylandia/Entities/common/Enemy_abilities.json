@@ -1,0 +1,15 @@
+{
+    "Dark Strike": {
+      "name": "Dark Strike",
+      "min_damage": 15,
+      "max_damage": 30,
+      "description": "A dark energy attack that deals significant damage to the enemy."
+    },
+    "Curse": {
+      "name": "Curse",
+      "min_damage": 10,
+      "max_damage": 20,
+      "description": "A curse that deals damage and lowers the enemy's defense."
+    }
+  }
+  

@@ -1,0 +1,14 @@
+{
+    "Fireball": {
+      "name": "Fireball",
+      "min_damage": 10,
+      "max_damage": 20,
+      "description": "A fiery ball that deals moderate damage to the enemy."
+    },
+    "Heal": {
+      "name": "Heal",
+      "min_damage": -10,
+      "max_damage": -20,
+      "description": "Moderately heal yourself"
+    }
+  }
