@@ -1,4 +1,7 @@
-from ..entity import Entity
+if __name__ == '__main__':
+    from ..entity import Entity
+else:
+    from Entities.entity import Entity
 import json
 import os
 

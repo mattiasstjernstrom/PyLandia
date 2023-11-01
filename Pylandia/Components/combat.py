@@ -1,5 +1,6 @@
-from ..Entities.Characters.character import Character
-from ..Entities.Enemies.enemy import Enemy
+from Entities.Characters.character import Character
+from Entities.Enemies.enemy import Enemy
+
 
 class Combat:
     def __init__(self, player: Character, enemy: Enemy):

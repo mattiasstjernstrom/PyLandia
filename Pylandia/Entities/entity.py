@@ -44,7 +44,7 @@ class Entity:
         self.defence_value *= 2
         print(f"{self._name} is defending and has doubled their defence value!")
     
-    def attack(self, target: Entity) -> int: #snor denna från förra arbetet
+    def attack(self, target) -> int: #snor denna från förra arbetet
         base_damage = self.attack_value - target.defence_value
         damage = round(random.uniform(
             max(0.1 * self.attack_value, base_damage) * 0.8,
@@ -58,7 +58,7 @@ class Entity:
             self._hp = 0
             self.is_alive = False
 
-    def use_ability(self, abilities: dict[str, dict[str, str|int]], ability: str, target: Entity) -> int:
+    def use_ability(self, abilities: dict[str, dict[str, str|int]], ability: str, target) -> int:
         ability = abilities.get(ability)
         if ability is None:
             print(f"Ability {ability} not found.")
