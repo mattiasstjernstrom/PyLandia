@@ -1,4 +1,4 @@
-from ..Entities.Characters.characters import Character
+from ..Entities.Characters.character import Character
 from ..Entities.Enemies.enemy import Enemy
 
 class Combat:
