@@ -1,4 +1,4 @@
-from .Entity import Entity
+from ..entity import Entity
 import json
 import random
 import os
@@ -11,12 +11,12 @@ class Enemy(Entity):
         self.behaviors = {}
 
     def load_abilities(self):
-        file_path = os.path.join(os.path.dirname(__file__), 'Enemy_abilities.json')
+        file_path = os.path.join(os.path.dirname(__file__), 'enemy_abilities.json')
         with open(file_path, 'r') as f:
             self.abilities.update(json.load(f))
 
     def load_behaviors(self):
-        file_path = os.path.join(os.path.dirname(__file__), 'Behaviors.json')
+        file_path = os.path.join(os.path.dirname(__file__), 'behaviors.json')
         with open(file_path, 'r') as f:
             self.behaviors.update(json.load(f))
 
